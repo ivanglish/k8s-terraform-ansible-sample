@@ -17,7 +17,7 @@ resource "aws_instance" "worker" {
     vpc_security_group_ids = ["${aws_security_group.kubernetes.id}"]
     key_name = "${var.default_keypair_name}"
 
-    tags {
+    tags = {
       Owner = "${var.owner}"
       Name = "worker-${count.index}"
       ansibleFilter = "${var.ansibleFilter}"

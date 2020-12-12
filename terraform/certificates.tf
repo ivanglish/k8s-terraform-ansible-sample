@@ -6,7 +6,7 @@
 data "template_file" "certificates" {
     template = "${file("${path.module}/template/kubernetes-csr.json")}"
     depends_on = ["aws_elb.kubernetes_api","aws_instance.etcd","aws_instance.controller","aws_instance.worker"]
-    vars {
+    vars = {
       kubernetes_api_elb_dns_name = "${aws_elb.kubernetes_api.dns_name}"
       kubernetes_cluster_dns = "${var.kubernetes_cluster_dns}"
 
@@ -33,7 +33,7 @@ data "template_file" "certificates" {
     }
 }
 resource "null_resource" "certificates" {
-  triggers {
+  triggers = {
     template_rendered = "${ data.template_file.certificates.rendered }"
   }
   provisioner "local-exec" {

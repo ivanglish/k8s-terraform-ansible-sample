@@ -6,7 +6,7 @@
 data "template_file" "ssh_cfg" {
     template = "${file("${path.module}/template/ssh.cfg")}"
     depends_on = ["aws_instance.etcd", "aws_instance.controller", "aws_instance.worker"]
-    vars {
+    vars = {
       user = "${var.default_instance_user}"
 
       etcd0_ip = "${aws_instance.etcd.0.public_ip}"
@@ -21,7 +21,7 @@ data "template_file" "ssh_cfg" {
     }
 }
 resource "null_resource" "ssh_cfg" {
-  triggers {
+  triggers ={
     template_rendered = "${ data.template_file.ssh_cfg.rendered }"
   }
   provisioner "local-exec" {

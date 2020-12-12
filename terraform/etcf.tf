@@ -15,7 +15,7 @@ resource "aws_instance" "etcd" {
     vpc_security_group_ids = ["${aws_security_group.kubernetes.id}"]
     key_name = "${var.default_keypair_name}"
 
-    tags {
+    tags = {
       Owner = "${var.owner}"
       Name = "etcd-${count.index}"
       ansibleFilter = "${var.ansibleFilter}"

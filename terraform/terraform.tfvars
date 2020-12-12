@@ -9,7 +9,7 @@ control_cidr = "200.104.110.43/32"
 
 /* Optional. Set as desired */
 region = "sa-east-1"
-/* zone = "us-west-2a" */
+zone = "sa-east-1a"
 
 /*
    If your chosen region above doesn't have a corresponding ami
