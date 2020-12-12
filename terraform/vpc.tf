@@ -9,6 +9,8 @@ resource "aws_vpc" "kubernetes" {
   tags {
     Name = "${var.vpc_name}"
     Owner = "${var.owner}"
+    devops = ""
+    prod = ""
   }
 }
 
@@ -20,6 +22,8 @@ resource "aws_vpc_dhcp_options" "dns_resolver" {
   tags {
     Name = "${var.vpc_name}"
     Owner = "${var.owner}"
+    devops = ""
+    prod = ""
   }
 }
 
@@ -51,6 +55,8 @@ resource "aws_subnet" "kubernetes" {
   tags {
     Name = "kubernetes"
     Owner = "${var.owner}"
+    devops = ""
+    prod = ""
   }
 }
 
@@ -59,6 +65,8 @@ resource "aws_internet_gateway" "gw" {
   tags {
     Name = "kubernetes"
     Owner = "${var.owner}"
+    devops = ""
+    prod = ""
   }
 }
 
@@ -78,6 +86,8 @@ resource "aws_route_table" "kubernetes" {
     tags {
       Name = "kubernetes"
       Owner = "${var.owner}"
+      devops = ""
+      prod = ""
     }
 }
 
@@ -138,5 +148,7 @@ resource "aws_security_group" "kubernetes" {
   tags {
     Owner = "${var.owner}"
     Name = "kubernetes"
+    devops = ""
+    prod = ""
   }
 }

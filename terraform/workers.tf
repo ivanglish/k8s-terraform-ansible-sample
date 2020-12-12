@@ -23,6 +23,8 @@ resource "aws_instance" "worker" {
       ansibleFilter = "${var.ansibleFilter}"
       ansibleNodeType = "worker"
       ansibleNodeName = "worker${count.index}"
+      devops = ""
+      prod = ""
     }
 }
 

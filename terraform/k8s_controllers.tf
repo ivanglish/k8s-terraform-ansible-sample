@@ -25,6 +25,8 @@ resource "aws_instance" "controller" {
       ansibleFilter = "${var.ansibleFilter}"
       ansibleNodeType = "controller"
       ansibleNodeName = "controller${count.index}"
+      devops = ""
+      prod = ""
     }
 }
 
@@ -58,6 +60,8 @@ resource "aws_elb" "kubernetes_api" {
     tags {
       Name = "kubernetes"
       Owner = "${var.owner}"
+      devops = ""
+      prod = ""
     }
 }
 
@@ -88,6 +92,8 @@ resource "aws_security_group" "kubernetes_api" {
   tags {
     Owner = "${var.owner}"
     Name = "kubernetes-api"
+    devops = ""
+    prod = ""
   }
 }
 

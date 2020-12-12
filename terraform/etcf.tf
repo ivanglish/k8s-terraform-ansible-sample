@@ -21,5 +21,7 @@ resource "aws_instance" "etcd" {
       ansibleFilter = "${var.ansibleFilter}"
       ansibleNodeType = "etcd"
       ansibleNodeName = "etcd${count.index}"
+      devops = ""
+      prod = ""
     }
 }
